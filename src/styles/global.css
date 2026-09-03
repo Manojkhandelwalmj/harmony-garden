@@ -1,0 +1,105 @@
+/* =========================================
+   Harmony Garden — Global Styles
+   ========================================= */
+
+@import "./variables.css";
+@import "./typography.css";
+@import "./utilities.css";
+
+/* -----------------------------------------
+   Box Model
+   ----------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* -----------------------------------------
+   Document
+   ----------------------------------------- */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background: var(--color-ivory);
+  overflow-x: hidden;
+}
+
+/* -----------------------------------------
+   Media
+   ----------------------------------------- */
+
+img,
+picture,
+video,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+/* -----------------------------------------
+   Forms
+   ----------------------------------------- */
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+/* -----------------------------------------
+   Buttons
+   ----------------------------------------- */
+
+button {
+  cursor: pointer;
+}
+
+/* -----------------------------------------
+   Accessibility
+   ----------------------------------------- */
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* -----------------------------------------
+   Selection
+   ----------------------------------------- */
+
+::selection {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* -----------------------------------------
+   Reduced Motion
+   ----------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
