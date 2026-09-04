@@ -1,0 +1,156 @@
+﻿---
+import { site } from "../data/site";
+---
+
+<header class="site-header">
+  <div class="container site-header__inner">
+
+    <a
+      class="site-header__brand"
+      href="/"
+      aria-label={`${site.name} home`}
+    >
+      <span class="site-header__name">{site.name}</span>
+      <span class="site-header__location">{site.location}</span>
+    </a>
+
+    <nav class="site-header__nav" aria-label="Main navigation">
+      <ul>
+        {site.navigation.map((item) => (
+          <li>
+            <a href={item.href}>{item.label}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <a class="site-header__cta" href="#contact">
+      {site.hero.primaryCta}
+    </a>
+
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    background: var(--color-ivory);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 76px;
+    gap: var(--space-6);
+  }
+
+  .site-header__brand {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 2px;
+    color: var(--color-primary);
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .site-header__name {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.1;
+  }
+
+  .site-header__location {
+    color: var(--color-muted);
+    font-size: 0.75rem;
+    line-height: 1.2;
+  }
+
+  .site-header__nav ul {
+    display: flex;
+    align-items: center;
+    gap: var(--space-8);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .site-header__nav a {
+    position: relative;
+    color: var(--color-primary);
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 180ms ease;
+  }
+
+  .site-header__nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 180ms ease;
+  }
+
+  .site-header__nav a:hover::after {
+    transform: scaleX(1);
+  }
+
+  .site-header__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 0 var(--space-5);
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition:
+      background-color 180ms ease,
+      color 180ms ease;
+    flex-shrink: 0;
+  }
+
+  .site-header__cta:hover {
+    background: var(--color-primary);
+    color: var(--color-white);
+  }
+
+  @media (max-width: 800px) {
+    .site-header__inner {
+      min-height: 68px;
+    }
+
+    .site-header__nav {
+      display: none;
+    }
+
+    .site-header__cta {
+      min-height: 40px;
+      padding-inline: var(--space-4);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .site-header__name {
+      font-size: 1.1rem;
+    }
+
+    .site-header__location {
+      font-size: 0.7rem;
+    }
+
+    .site-header__cta {
+      font-size: 0.75rem;
+    }
+  }
+</style>
