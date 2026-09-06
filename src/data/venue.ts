@@ -30,6 +30,12 @@ export const venue = {
     }
   ],
 
+  // Prototype figures pending owner verification.
+  capacity: {
+    seated: "1,500",
+    floating: "2,000"
+  },
+
   eventTypes: [
     "Wedding celebrations",
     "Special occasions",
