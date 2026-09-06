@@ -1,0 +1,96 @@
+﻿---
+import { venue } from "../data/venue";
+---
+
+<section id="about" class="introduction" aria-labelledby="introduction-title">
+  <div class="container introduction__inner">
+
+    <div class="introduction__content">
+      <h2 id="introduction-title" class="introduction__title">
+        {venue.introduction.title}
+      </h2>
+
+      <p class="introduction__description">
+        {venue.introduction.description}
+      </p>
+    </div>
+
+    <ul class="introduction__highlights" aria-label="What Harmony Garden offers">
+      {
+        venue.highlights.map((highlight) => (
+          <li class="introduction__highlight">{highlight}</li>
+        ))
+      }
+    </ul>
+
+  </div>
+</section>
+
+<style>
+  .introduction {
+    background: var(--color-ivory);
+  }
+
+  .introduction__inner {
+    padding-top: var(--space-16);
+    padding-bottom: var(--space-16);
+    border-top: 1px solid var(--color-primary);
+  }
+
+  .introduction__content {
+    max-width: 760px;
+  }
+
+  .introduction__title {
+    margin: 0;
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+  }
+
+  .introduction__description {
+    max-width: 680px;
+    margin: var(--space-7) 0 0;
+    color: var(--color-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  .introduction__highlights {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+    margin: var(--space-10) 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .introduction__highlight {
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--color-primary);
+    color: var(--color-primary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 800px) {
+    .introduction__inner {
+      padding-top: var(--space-12);
+      padding-bottom: var(--space-12);
+    }
+
+    .introduction__highlights {
+      grid-template-columns: 1fr;
+      gap: var(--space-5);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .introduction__description {
+      font-size: 1rem;
+    }
+  }
+</style>

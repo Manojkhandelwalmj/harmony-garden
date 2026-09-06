@@ -1,15 +1,10 @@
----
+﻿---
 import MainLayout from "../layouts/MainLayout.astro";
+import Hero from "../components/Hero.astro";
+import Introduction from "../components/Introduction.astro";
 ---
 
-<MainLayout
-  title="Harmony Garden | Wedding & Event Venue in Banswara"
-  description="Discover Harmony Garden, a wedding and event venue in Banswara, Rajasthan."
->
-  <main>
-    <div class="container section">
-      <h1>Harmony Garden</h1>
-      <p>Wedding & Event Venue in Banswara</p>
-    </div>
-  </main>
+<MainLayout>
+  <Hero />
+  <Introduction />
 </MainLayout>

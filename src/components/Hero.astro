@@ -1,0 +1,159 @@
+﻿---
+import { site } from "../data/site";
+---
+
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container hero__inner">
+
+    <div class="hero__content">
+
+      <p class="hero__eyebrow">
+        {site.hero.eyebrow}
+      </p>
+
+      <h1 id="hero-title" class="hero__title">
+        {site.hero.title}
+      </h1>
+
+      <p class="hero__description">
+        {site.hero.description}
+      </p>
+
+      <div class="hero__actions">
+        <a class="hero__button hero__button--primary" href="#contact">
+          {site.hero.primaryCta}
+        </a>
+
+        <a class="hero__button hero__button--secondary" href="#contact">
+          {site.hero.secondaryCta}
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .hero {
+    background: var(--color-ivory);
+  }
+
+  .hero__inner {
+    min-height: calc(100vh - 76px);
+    display: flex;
+    align-items: center;
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-16);
+  }
+
+  .hero__content {
+    width: min(100%, 850px);
+  }
+
+  .hero__eyebrow {
+    margin: 0 0 var(--space-5);
+    color: var(--color-muted);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .hero__title {
+    max-width: 850px;
+    margin: 0;
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+    font-size: clamp(3.5rem, 7vw, 7rem);
+    font-weight: 600;
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+  }
+
+  .hero__description {
+    max-width: 620px;
+    margin: var(--space-7) 0 0;
+    color: var(--color-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin-top: var(--space-8);
+  }
+
+  .hero__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0 var(--space-6);
+    border: 1px solid var(--color-primary);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition:
+      background-color 180ms ease,
+      color 180ms ease,
+      border-color 180ms ease;
+  }
+
+  .hero__button--primary {
+    background: var(--color-primary);
+    color: var(--color-white);
+  }
+
+  .hero__button--primary:hover {
+    background: transparent;
+    color: var(--color-primary);
+  }
+
+  .hero__button--secondary {
+    background: transparent;
+    color: var(--color-primary);
+  }
+
+  .hero__button--secondary:hover {
+    background: var(--color-primary);
+    color: var(--color-white);
+  }
+
+  @media (max-width: 800px) {
+    .hero__inner {
+      min-height: auto;
+      padding-top: var(--space-16);
+      padding-bottom: var(--space-16);
+    }
+
+    .hero__title {
+      font-size: clamp(3rem, 12vw, 5rem);
+    }
+
+    .hero__description {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero__inner {
+      padding-top: var(--space-12);
+      padding-bottom: var(--space-12);
+    }
+
+    .hero__title {
+      font-size: clamp(2.7rem, 14vw, 4rem);
+    }
+
+    .hero__actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .hero__button {
+      width: 100%;
+    }
+  }
+</style>
