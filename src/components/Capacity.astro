@@ -1,0 +1,136 @@
+---
+import { venue } from "../data/venue";
+---
+
+<section id="capacity" class="capacity" aria-labelledby="capacity-title">
+  <div class="container capacity__inner">
+    <div class="capacity__header">
+      <p class="capacity__eyebrow">Capacity</p>
+
+      <h2 id="capacity-title" class="capacity__title">
+        Room to Celebrate
+      </h2>
+
+      <p class="capacity__description">
+        The venue has provisional capacity figures for seated and floating
+        arrangements, pending owner verification.
+      </p>
+    </div>
+
+    <dl class="capacity__list">
+      <div class="capacity__item">
+        <dt class="capacity__label">Seated capacity</dt>
+        <dd class="capacity__value">{venue.capacity.seated}</dd>
+      </div>
+
+      <div class="capacity__item">
+        <dt class="capacity__label">Floating capacity</dt>
+        <dd class="capacity__value">{venue.capacity.floating}</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<style>
+  .capacity {
+    background: var(--color-ivory);
+  }
+
+  .capacity__inner {
+    padding-top: var(--space-10);
+    padding-bottom: var(--space-10);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .capacity__header {
+    max-width: 760px;
+  }
+
+  .capacity__eyebrow {
+    margin: 0 0 var(--space-4);
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .capacity__title {
+    margin: 0;
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+  }
+
+  .capacity__description {
+    max-width: 680px;
+    margin: var(--space-7) 0 0;
+    color: var(--color-text-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  .capacity__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+    margin: var(--space-10) 0 0;
+  }
+
+  .capacity__item {
+    margin: 0;
+    padding: var(--space-7);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-white);
+  }
+
+  .capacity__label {
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .capacity__value {
+    margin: var(--space-4) 0 0;
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 7vw, 5rem);
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  @media (max-width: 800px) {
+    .capacity__inner {
+      padding-top: var(--space-8);
+      padding-bottom: var(--space-8);
+    }
+
+    .capacity__list {
+      grid-template-columns: 1fr;
+      gap: var(--space-5);
+      margin-top: var(--space-8);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .capacity__title {
+      font-size: clamp(2.3rem, 11vw, 3.5rem);
+    }
+
+    .capacity__description {
+      font-size: 1rem;
+    }
+
+    .capacity__item {
+      padding: var(--space-6);
+    }
+  }
+</style>
