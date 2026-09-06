@@ -34,5 +34,18 @@ export const venue = {
     "Wedding celebrations",
     "Special occasions",
     "Event gatherings"
+  ],
+
+  venueSpaces: [
+    {
+      title: "Wedding Celebration Space",
+      description:
+        "A venue setting for wedding ceremonies and celebrations."
+    },
+    {
+      title: "Event Gathering Space",
+      description:
+        "Suitable for special occasions and social gatherings."
+    }
   ]
 } as const;
