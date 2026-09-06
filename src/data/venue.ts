@@ -1,4 +1,4 @@
-﻿export const venue = {
+export const venue = {
   introduction: {
     title: "A Place for Your Special Celebrations",
     description:
@@ -6,6 +6,31 @@
   },
 
   highlights: [
+    "Wedding celebrations",
+    "Special occasions",
+    "Event gatherings"
+  ],
+
+  trustStats: [
+    {
+      value: "100+",
+      label: "Weddings hosted*"
+    },
+    {
+      value: "1,500",
+      label: "Seated capacity*"
+    },
+    {
+      value: "50",
+      label: "Car parking*"
+    },
+    {
+      value: "2016",
+      label: "Established*"
+    }
+  ],
+
+  eventTypes: [
     "Wedding celebrations",
     "Special occasions",
     "Event gatherings"
