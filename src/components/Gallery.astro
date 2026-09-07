@@ -1,0 +1,270 @@
+---
+import { gallery } from "../data/gallery";
+
+const categories = [
+  "All",
+  "Weddings",
+  "Decor",
+  "Venue",
+  "Dining",
+  "Celebrations",
+  "Night Events"
+] as const;
+---
+
+<section id="gallery" class="gallery" aria-labelledby="gallery-title">
+  <div class="container gallery__inner">
+    <div class="gallery__header">
+      <p class="gallery__eyebrow">Gallery</p>
+
+      <h2 id="gallery-title" class="gallery__title">
+        Every Celebration, Beautifully Set
+      </h2>
+
+      <p class="gallery__description">
+        Explore Harmony Garden through real venue and event imagery, from
+        garden pathways and outdoor spaces to decorated wedding settings.
+      </p>
+    </div>
+
+    <nav class="gallery__filters" aria-label="Gallery categories">
+      <ul class="gallery__filter-list">
+        {
+          categories.map((category, index) => (
+            <li>
+              <button
+                type="button"
+                class:list={{ "gallery__filter--active": index === 0 }}
+                aria-pressed={index === 0 ? "true" : "false"}
+                data-filter={category}
+              >
+                {category}
+              </button>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <ul class="gallery__grid">
+      {
+        gallery.map((image, index) => (
+          <li
+            class:list={{
+              "gallery__item": true,
+              "gallery__item--featured": index === 0 || index === 4
+            }}
+            data-categories={image.categories.join("|")}
+          >
+            <figure>
+              <img
+                src={image.src.src}
+                alt={image.alt}
+                width={image.src.width}
+                height={image.src.height}
+                loading={index < 3 ? "eager" : "lazy"}
+                decoding="async"
+              />
+            </figure>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<script>
+  const gallery = document.querySelector("#gallery");
+
+  if (gallery) {
+    const buttons = gallery.querySelectorAll("[data-filter]");
+    const items = gallery.querySelectorAll("[data-categories]");
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const filter = button.getAttribute("data-filter");
+
+        buttons.forEach((item) => {
+          const active = item === button;
+          item.classList.toggle("gallery__filter--active", active);
+          item.setAttribute("aria-pressed", active ? "true" : "false");
+        });
+
+        items.forEach((item) => {
+          const categories = item.getAttribute("data-categories")?.split("|") ?? [];
+          const visible = filter === "All" || categories.includes(filter ?? "");
+
+          item.hidden = !visible;
+        });
+      });
+    });
+  }
+</script>
+
+<style>
+  .gallery {
+    background: var(--color-ivory);
+  }
+
+  .gallery__inner {
+    padding-top: var(--space-10);
+    padding-bottom: var(--space-10);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .gallery__header {
+    max-width: 760px;
+  }
+
+  .gallery__eyebrow {
+    margin: 0 0 var(--space-4);
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .gallery__title {
+    margin: 0;
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+  }
+
+  .gallery__description {
+    max-width: 680px;
+    margin: var(--space-7) 0 0;
+    color: var(--color-text-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  .gallery__filters {
+    margin-top: var(--space-8);
+  }
+
+  .gallery__filter-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .gallery__filter-list button {
+    min-height: 44px;
+    padding: 0.65rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--color-text-muted);
+    font: inherit;
+    font-size: 0.85rem;
+    cursor: pointer;
+  }
+
+  .gallery__filter-list button.gallery__filter--active {
+    border-color: var(--color-primary);
+    background: var(--color-primary);
+    color: var(--color-ivory);
+  }
+
+  .gallery__filter-list button:focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+  }
+
+  .gallery__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-6);
+    margin: var(--space-10) 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .gallery__item {
+    min-width: 0;
+  }
+
+  .gallery__item--featured {
+    grid-column: span 2;
+  }
+
+  .gallery__item figure {
+    margin: 0;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    background: var(--color-white);
+  }
+
+  .gallery__item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 280px;
+    object-fit: cover;
+  }
+
+  .gallery__item[hidden] {
+    display: none;
+  }
+
+  @media (max-width: 800px) {
+    .gallery__inner {
+      padding-top: var(--space-8);
+      padding-bottom: var(--space-8);
+    }
+
+    .gallery__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-5);
+      margin-top: var(--space-8);
+    }
+
+    .gallery__item--featured {
+      grid-column: span 2;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .gallery__title {
+      font-size: clamp(2.3rem, 11vw, 3.5rem);
+    }
+
+    .gallery__description {
+      font-size: 1rem;
+    }
+
+    .gallery__filters {
+      margin-top: var(--space-7);
+    }
+
+    .gallery__filter-list {
+      gap: var(--space-2);
+    }
+
+    .gallery__filter-list button {
+      padding-inline: 0.85rem;
+    }
+
+    .gallery__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .gallery__item--featured {
+      grid-column: auto;
+    }
+
+    .gallery__item img {
+      min-height: 0;
+      aspect-ratio: 4 / 3;
+    }
+  }
+</style>
