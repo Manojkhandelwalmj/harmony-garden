@@ -1,0 +1,201 @@
+﻿---
+import { gallery } from "../data/gallery";
+
+const celebrations = gallery.filter((image) =>
+  image.categories.includes("Celebrations")
+);
+
+const labels = new Map([
+  ["harmonyGarden3.png", "Wedding"],
+  ["harmonyGarden4.png", "Wedding"],
+  ["harmonyGarden5.png", "Wedding"],
+  ["harmonyGarden8.png", "Decorated Venue"],
+  ["harmonyGarden9.png", "Decorated Venue"]
+]);
+---
+
+<section
+  id="real-celebrations"
+  class="real-celebrations"
+  aria-labelledby="real-celebrations-title"
+>
+  <div class="container real-celebrations__inner">
+    <div class="real-celebrations__header">
+      <p class="real-celebrations__eyebrow">Real Celebrations</p>
+
+      <h2 id="real-celebrations-title" class="real-celebrations__title">
+        See How Celebrations Come Together
+      </h2>
+
+      <p class="real-celebrations__description">
+        A closer look at real Harmony Garden imagery, showing wedding settings
+        and decorated venue spaces from the existing gallery.
+      </p>
+    </div>
+
+    <div class="real-celebrations__gallery">
+      {
+        celebrations.map((image, index) => {
+          const filename = image.src.src.split("/").pop() ?? "";
+          const label = labels.get(filename);
+
+          return (
+            <figure
+              class:list={{
+                "real-celebrations__figure": true,
+                "real-celebrations__figure--large": index === 0 || index === 3
+              }}
+            >
+              <img
+                src={image.src.src}
+                alt={image.alt}
+                width={image.src.width}
+                height={image.src.height}
+                loading={index < 2 ? "eager" : "lazy"}
+                decoding="async"
+              />
+
+              {label && (
+                <figcaption class="real-celebrations__caption">
+                  {label}
+                </figcaption>
+              )}
+            </figure>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .real-celebrations {
+    background: var(--color-cream);
+  }
+
+  .real-celebrations__inner {
+    padding-top: var(--space-10);
+    padding-bottom: var(--space-10);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .real-celebrations__header {
+    max-width: 760px;
+  }
+
+  .real-celebrations__eyebrow {
+    margin: 0 0 var(--space-4);
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .real-celebrations__title {
+    margin: 0;
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+  }
+
+  .real-celebrations__description {
+    max-width: 680px;
+    margin: var(--space-7) 0 0;
+    color: var(--color-text-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  .real-celebrations__gallery {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-6);
+    margin-top: var(--space-10);
+  }
+
+  .real-celebrations__figure {
+    position: relative;
+    min-width: 0;
+    margin: 0;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    background: var(--color-white);
+  }
+
+  .real-celebrations__figure--large {
+    grid-column: span 2;
+  }
+
+  .real-celebrations__figure img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    object-fit: cover;
+  }
+
+  .real-celebrations__caption {
+    position: absolute;
+    right: var(--space-4);
+    bottom: var(--space-4);
+    padding: 0.55rem 0.8rem;
+    border: 1px solid rgb(255 255 255 / 0.55);
+    background: rgb(24 53 43 / 0.88);
+    color: var(--color-white);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    line-height: 1.3;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 800px) {
+    .real-celebrations__inner {
+      padding-top: var(--space-8);
+      padding-bottom: var(--space-8);
+    }
+
+    .real-celebrations__gallery {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-5);
+      margin-top: var(--space-8);
+    }
+
+    .real-celebrations__figure--large {
+      grid-column: span 2;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .real-celebrations__title {
+      font-size: clamp(2.3rem, 11vw, 3.5rem);
+    }
+
+    .real-celebrations__description {
+      font-size: 1rem;
+    }
+
+    .real-celebrations__gallery {
+      grid-template-columns: 1fr;
+    }
+
+    .real-celebrations__figure--large {
+      grid-column: auto;
+    }
+
+    .real-celebrations__figure img {
+      min-height: 0;
+      aspect-ratio: 4 / 3;
+    }
+
+    .real-celebrations__caption {
+      right: var(--space-3);
+      bottom: var(--space-3);
+    }
+  }
+</style>
