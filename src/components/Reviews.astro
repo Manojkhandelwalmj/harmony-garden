@@ -1,0 +1,222 @@
+﻿---
+import { reviews } from "../data/reviews";
+---
+
+<section
+  id="reviews"
+  class="reviews"
+  aria-labelledby="reviews-title"
+>
+  <div class="container reviews__inner">
+    <div class="reviews__header">
+      <p class="reviews__eyebrow">Reviews</p>
+
+      <h2 id="reviews-title" class="reviews__title">
+        Guest Feedback, Thoughtfully Featured
+      </h2>
+
+      <p class="reviews__description">
+        We will feature verified guest feedback here as it becomes available.
+      </p>
+    </div>
+
+    {
+      reviews.length > 0 ? (
+        <div class="reviews__list" aria-label="Guest reviews">
+          {reviews.map((review) => (
+            <article class="reviews__item">
+              <div class="reviews__content">
+                <p class="reviews__text">{review.text}</p>
+
+                <div class="reviews__meta">
+                  <p class="reviews__reviewer">{review.reviewerName}</p>
+
+                  <p class="reviews__source">
+                    {review.source}
+                    {review.date && ` · ${review.date}`}
+                  </p>
+
+                  <p class="reviews__rating">
+                    Rating: {review.rating} out of 5
+                  </p>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <div class="reviews__empty">
+          <p class="reviews__empty-label">Guest feedback</p>
+
+          <p class="reviews__empty-title">
+            Verified reviews will be featured here.
+          </p>
+
+          <p class="reviews__empty-description">
+            This space is reserved for genuine guest experiences once verified
+            feedback is available.
+          </p>
+        </div>
+      )
+    }
+  </div>
+</section>
+
+<style>
+  .reviews {
+    background: var(--color-ivory);
+  }
+
+  .reviews__inner {
+    padding-top: var(--space-10);
+    padding-bottom: var(--space-10);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .reviews__header {
+    max-width: 760px;
+  }
+
+  .reviews__eyebrow {
+    margin: 0 0 var(--space-4);
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .reviews__title {
+    margin: 0;
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+  }
+
+  .reviews__description {
+    max-width: 680px;
+    margin: var(--space-7) 0 0;
+    color: var(--color-text-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  .reviews__list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-6);
+    margin-top: var(--space-10);
+  }
+
+  .reviews__item {
+    min-width: 0;
+    padding: var(--space-7);
+    border: 1px solid var(--color-border);
+    background: var(--color-white);
+  }
+
+  .reviews__text {
+    margin: 0;
+    color: var(--color-text);
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .reviews__meta {
+    margin-top: var(--space-6);
+    padding-top: var(--space-5);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .reviews__reviewer,
+  .reviews__source,
+  .reviews__rating {
+    margin: 0;
+  }
+
+  .reviews__reviewer {
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  .reviews__source,
+  .reviews__rating {
+    margin-top: var(--space-2);
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .reviews__empty {
+    max-width: 760px;
+    margin-top: var(--space-10);
+    padding: clamp(2rem, 5vw, 4rem);
+    border: 1px solid var(--color-border);
+    background: var(--color-cream);
+    text-align: center;
+  }
+
+  .reviews__empty-label {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .reviews__empty-title {
+    margin: var(--space-4) 0 0;
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+    font-size: clamp(1.7rem, 4vw, 2.5rem);
+    font-weight: 600;
+    line-height: 1.15;
+  }
+
+  .reviews__empty-description {
+    max-width: 580px;
+    margin: var(--space-4) auto 0;
+    color: var(--color-text-muted);
+    font-size: 0.98rem;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 800px) {
+    .reviews__inner {
+      padding-top: var(--space-8);
+      padding-bottom: var(--space-8);
+    }
+
+    .reviews__list {
+      grid-template-columns: 1fr;
+      gap: var(--space-5);
+      margin-top: var(--space-8);
+    }
+
+    .reviews__empty {
+      margin-top: var(--space-8);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .reviews__title {
+      font-size: clamp(2.3rem, 11vw, 3.5rem);
+    }
+
+    .reviews__description {
+      font-size: 1rem;
+    }
+
+    .reviews__item {
+      padding: var(--space-6);
+    }
+  }
+</style>
