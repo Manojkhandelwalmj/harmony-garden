@@ -1,4 +1,4 @@
-export const venue = {
+﻿export const venue = {
   introduction: {
     title: "A Place for Your Special Celebrations",
     description:
@@ -34,6 +34,13 @@ export const venue = {
   capacity: {
     seated: "1,500",
     floating: "2,000"
+  },
+
+  // Prototype pricing pending owner verification.
+  pricing: {
+    value: "₹450–500",
+    unit: "plate",
+    isProvisional: true
   },
 
   eventTypes: [
