@@ -1,0 +1,230 @@
+---
+import { site } from "../data/site";
+---
+
+<section
+  id="location"
+  class="location"
+  aria-labelledby="location-title"
+>
+  <div class="container location__inner">
+    <div class="location__content">
+      <div class="location__header">
+        <p class="location__eyebrow">Location</p>
+
+        <h2 id="location-title" class="location__title">
+          Find Harmony Garden in Banswara
+        </h2>
+
+        <p class="location__description">
+          Harmony Garden is located in Banswara, Rajasthan. The exact venue
+          destination will be connected here once the verified map details
+          are available.
+        </p>
+      </div>
+
+      <div class="location__details">
+        <div class="location__detail">
+          <p class="location__label">Location</p>
+          <p class="location__value">{site.location}</p>
+        </div>
+
+        <div class="location__detail">
+          <p class="location__label">Address</p>
+          <address class="location__value">{site.contact.address}</address>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="location__map"
+      role="region"
+      aria-label="Map location"
+    >
+      <div class="location__map-inner">
+        <p class="location__map-label">Map destination</p>
+
+        <h3 class="location__map-title">
+          Exact map details coming soon
+        </h3>
+
+        <p class="location__map-text">
+          An interactive map will be connected once the exact venue location
+          has been verified.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .location {
+    background: var(--color-white);
+  }
+
+  .location__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
+    gap: var(--space-10);
+    align-items: stretch;
+    padding-top: var(--space-10);
+    padding-bottom: var(--space-10);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .location__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .location__header {
+    max-width: 620px;
+  }
+
+  .location__eyebrow {
+    margin: 0 0 var(--space-4);
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .location__title {
+    margin: 0;
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+  }
+
+  .location__description {
+    max-width: 600px;
+    margin: var(--space-7) 0 0;
+    color: var(--color-text-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  .location__details {
+    display: grid;
+    gap: var(--space-5);
+    margin-top: var(--space-8);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .location__detail {
+    display: grid;
+    grid-template-columns: 110px minmax(0, 1fr);
+    gap: var(--space-5);
+    align-items: start;
+  }
+
+  .location__label {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    line-height: 1.5;
+    text-transform: uppercase;
+  }
+
+  .location__value {
+    margin: 0;
+    color: var(--color-primary);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.6;
+  }
+
+  .location__map {
+    min-height: 420px;
+    border: 1px solid var(--color-border);
+    background: var(--color-cream);
+  }
+
+  .location__map-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    min-height: 420px;
+    padding: var(--space-8);
+    text-align: center;
+  }
+
+  .location__map-label {
+    margin: 0 0 var(--space-4);
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .location__map-title {
+    margin: 0;
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 600;
+    line-height: 1.15;
+  }
+
+  .location__map-text {
+    max-width: 440px;
+    margin: var(--space-5) auto 0;
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+
+  @media (max-width: 800px) {
+    .location__inner {
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+      padding-top: var(--space-8);
+      padding-bottom: var(--space-8);
+    }
+
+    .location__description {
+      margin-top: var(--space-6);
+    }
+
+    .location__map {
+      min-height: 340px;
+    }
+
+    .location__map-inner {
+      min-height: 340px;
+      padding: var(--space-7);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .location__title {
+      font-size: clamp(2.3rem, 11vw, 3.5rem);
+    }
+
+    .location__description {
+      font-size: 1rem;
+    }
+
+    .location__detail {
+      grid-template-columns: 1fr;
+      gap: var(--space-2);
+    }
+
+    .location__map,
+    .location__map-inner {
+      min-height: 300px;
+    }
+  }
+</style>
