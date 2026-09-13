@@ -1,0 +1,189 @@
+﻿---
+import { site } from "../data/site";
+---
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__main">
+      <div class="footer__identity">
+        <p class="footer__eyebrow">Harmony Garden</p>
+
+        <h2 class="footer__title">Wedding &amp; Event Venue</h2>
+
+        <p class="footer__location">
+          {site.location}
+        </p>
+      </div>
+
+      <nav class="footer__nav" aria-label="Footer navigation">
+        <p class="footer__label">Explore</p>
+
+        <ul class="footer__links">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#introduction">About</a></li>
+          <li><a href="#event-types">Events</a></li>
+          <li><a href="#venue-spaces">Spaces</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#location">Location</a></li>
+          <li><a href="#lead-form">Check Availability</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer__contact">
+        <p class="footer__label">Location</p>
+
+        <address class="footer__address">
+          {site.contact.address}
+        </address>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p class="footer__copyright">
+        &copy; {new Date().getFullYear()} Harmony Garden. All rights reserved.
+      </p>
+
+      <a class="footer__top" href="#hero">Back to top</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--color-primary);
+    color: var(--color-white);
+  }
+
+  .footer__inner {
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-6);
+  }
+
+  .footer__main {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(180px, 0.8fr) minmax(180px, 0.7fr);
+    gap: var(--space-10);
+    padding-bottom: var(--space-10);
+  }
+
+  .footer__identity {
+    max-width: 420px;
+  }
+
+  .footer__eyebrow,
+  .footer__label {
+    margin: 0;
+    color: var(--color-accent);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .footer__title {
+    margin: var(--space-4) 0 0;
+    color: var(--color-white);
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 600;
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+  }
+
+  .footer__location {
+    margin: var(--space-4) 0 0;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .footer__links {
+    display: grid;
+    gap: var(--space-3);
+    margin: var(--space-5) 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .footer__links a,
+  .footer__top {
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    text-decoration: none;
+    transition: color 180ms ease;
+  }
+
+  .footer__links a:hover,
+  .footer__top:hover {
+    color: var(--color-white);
+  }
+
+  .footer__address {
+    margin-top: var(--space-5);
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 0.9rem;
+    font-style: normal;
+    line-height: 1.6;
+  }
+
+  .footer__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-6);
+    padding-top: var(--space-5);
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+  }
+
+  .footer__copyright {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.58);
+    font-size: 0.78rem;
+    line-height: 1.5;
+  }
+
+  .footer__top {
+    flex: 0 0 auto;
+  }
+
+  @media (max-width: 800px) {
+    .footer__inner {
+      padding-top: var(--space-10);
+    }
+
+    .footer__main {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-8);
+    }
+
+    .footer__identity {
+      grid-column: 1 / -1;
+    }
+
+    .footer__bottom {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .footer__inner {
+      padding-top: var(--space-8);
+      padding-bottom: var(--space-5);
+    }
+
+    .footer__main {
+      grid-template-columns: 1fr;
+      gap: var(--space-7);
+      padding-bottom: var(--space-8);
+    }
+
+    .footer__identity {
+      grid-column: auto;
+    }
+  }
+</style>

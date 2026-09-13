@@ -1,0 +1,124 @@
+﻿---
+---
+
+<section
+  id="final-cta"
+  class="final-cta"
+  aria-labelledby="final-cta-title"
+>
+  <div class="container final-cta__inner">
+    <div class="final-cta__content">
+      <p class="final-cta__eyebrow">Your Celebration Starts Here</p>
+
+      <h2 id="final-cta-title" class="final-cta__title">
+        Your Day Deserves the Right Setting.
+      </h2>
+
+      <p class="final-cta__description">
+        Whether you are planning a wedding or another special celebration,
+        share your event details with Harmony Garden and enquire about
+        availability and arrangements.
+      </p>
+
+      <a class="final-cta__button" href="#lead-form">
+        Check Availability
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .final-cta {
+    background: var(--color-primary);
+    color: var(--color-white);
+  }
+
+  .final-cta__inner {
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-12);
+  }
+
+  .final-cta__content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .final-cta__eyebrow {
+    margin: 0 0 var(--space-4);
+    color: var(--color-accent);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .final-cta__title {
+    margin: 0;
+    color: var(--color-white);
+    font-family: var(--font-heading);
+    font-size: clamp(2.8rem, 6vw, 5.5rem);
+    font-weight: 600;
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+  }
+
+  .final-cta__description {
+    max-width: 680px;
+    margin: var(--space-6) auto 0;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  .final-cta__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+    margin-top: var(--space-8);
+    padding: 0 var(--space-7);
+    border: 1px solid var(--color-white);
+    background: var(--color-white);
+    color: var(--color-primary);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition:
+      background-color 180ms ease,
+      color 180ms ease,
+      border-color 180ms ease;
+  }
+
+  .final-cta__button:hover {
+    background: transparent;
+    color: var(--color-white);
+  }
+
+  @media (max-width: 800px) {
+    .final-cta__inner {
+      padding-top: var(--space-10);
+      padding-bottom: var(--space-10);
+    }
+
+    .final-cta__description {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .final-cta__inner {
+      padding-top: var(--space-8);
+      padding-bottom: var(--space-8);
+    }
+
+    .final-cta__title {
+      font-size: clamp(2.5rem, 12vw, 4rem);
+    }
+
+    .final-cta__button {
+      width: 100%;
+    }
+  }
+</style>
