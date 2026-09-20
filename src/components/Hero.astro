@@ -1,8 +1,16 @@
----
+﻿---
 import { site } from "../data/site";
+import heroImage from "../assets/images/gallery/harmonyGarden1.png";
 ---
 
-<section class="hero" aria-labelledby="hero-title">
+<section
+  id="hero"
+  class="hero"
+  aria-labelledby="hero-title"
+  style={`background-image: url(${heroImage.src})`}
+>
+  <div class="hero__overlay"></div>
+
   <div class="container hero__inner">
 
     <div class="hero__content">
@@ -20,11 +28,11 @@ import { site } from "../data/site";
       </p>
 
       <div class="hero__actions">
-        <a class="hero__button hero__button--primary" href="#contact">
+        <a class="hero__button hero__button--primary" href="#lead-form">
           {site.hero.primaryCta}
         </a>
 
-        <a class="hero__button hero__button--secondary" href="#contact">
+        <a class="hero__button hero__button--secondary" href="#venue">
           {site.hero.secondaryCta}
         </a>
       </div>
@@ -36,10 +44,25 @@ import { site } from "../data/site";
 
 <style>
   .hero {
-    background: var(--color-ivory);
+    position: relative;
+    isolation: isolate;
+    min-height: calc(100vh - 76px);
+    background-color: var(--color-primary);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: rgba(10, 34, 25, 0.62);
   }
 
   .hero__inner {
+    position: relative;
+    z-index: 1;
     min-height: calc(100vh - 76px);
     display: flex;
     align-items: center;
@@ -53,7 +76,7 @@ import { site } from "../data/site";
 
   .hero__eyebrow {
     margin: 0 0 var(--space-5);
-    color: var(--color-text-muted);
+    color: rgba(255, 255, 255, 0.82);
     font-size: 0.8rem;
     font-weight: 500;
     letter-spacing: 0.12em;
@@ -63,7 +86,7 @@ import { site } from "../data/site";
   .hero__title {
     max-width: 850px;
     margin: 0;
-    color: var(--color-primary);
+    color: var(--color-white);
     font-family: var(--font-heading);
     font-size: clamp(3.5rem, 7vw, 7rem);
     font-weight: 600;
@@ -74,7 +97,7 @@ import { site } from "../data/site";
   .hero__description {
     max-width: 620px;
     margin: var(--space-7) 0 0;
-    color: var(--color-text-muted);
+    color: rgba(255, 255, 255, 0.88);
     font-size: 1.05rem;
     line-height: 1.7;
   }
@@ -92,7 +115,7 @@ import { site } from "../data/site";
     justify-content: center;
     min-height: 48px;
     padding: 0 var(--space-6);
-    border: 1px solid var(--color-primary);
+    border: 1px solid var(--color-white);
     text-decoration: none;
     font-size: 0.85rem;
     transition:
@@ -102,28 +125,32 @@ import { site } from "../data/site";
   }
 
   .hero__button--primary {
-    background: var(--color-primary);
-    color: var(--color-white);
+    background: var(--color-white);
+    color: var(--color-primary);
   }
 
   .hero__button--primary:hover {
     background: transparent;
-    color: var(--color-primary);
+    color: var(--color-white);
   }
 
   .hero__button--secondary {
     background: transparent;
-    color: var(--color-primary);
-  }
-
-  .hero__button--secondary:hover {
-    background: var(--color-primary);
     color: var(--color-white);
   }
 
+  .hero__button--secondary:hover {
+    background: var(--color-white);
+    color: var(--color-primary);
+  }
+
   @media (max-width: 800px) {
-    .hero__inner {
+    .hero {
       min-height: auto;
+    }
+
+    .hero__inner {
+      min-height: 620px;
       padding-top: var(--space-16);
       padding-bottom: var(--space-16);
     }
@@ -139,6 +166,7 @@ import { site } from "../data/site";
 
   @media (max-width: 480px) {
     .hero__inner {
+      min-height: 600px;
       padding-top: var(--space-12);
       padding-bottom: var(--space-12);
     }

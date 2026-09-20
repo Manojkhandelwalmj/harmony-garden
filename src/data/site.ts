@@ -5,18 +5,20 @@
 
   hero: {
     eyebrow: "Wedding & Events in Banswara",
-    title: "Celebrate Your Moments at Harmony Garden",
+    title: "Your Celebration, Beautifully Gathered.",
     description:
-      "A beautiful venue for weddings, celebrations and special occasions in Banswara.",
+      "Harmony Garden — A spacious wedding & celebration venue in Banswara",
     primaryCta: "Check Availability",
-    secondaryCta: "Contact Us"
+    secondaryCta: "Explore the Venue"
   },
 
   navigation: [
-    { label: "About", href: "#about" },
-    { label: "Venue", href: "#venue" },
-    { label: "Gallery", href: "#gallery" },
-    { label: "Contact", href: "#contact" }
+    { label: "HOME", href: "#hero" },
+    { label: "VENUE", href: "#venue" },
+    { label: "EVENTS", href: "#events" },
+    { label: "GALLERY", href: "#gallery" },
+    { label: "FACILITIES", href: "#facilities" },
+    { label: "REVIEWS", href: "#reviews" }
   ],
 
   contact: {
