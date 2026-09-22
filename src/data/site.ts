@@ -13,12 +13,12 @@
   },
 
   navigation: [
-    { label: "HOME", href: "#hero" },
-    { label: "VENUE", href: "#venue" },
-    { label: "EVENTS", href: "#events" },
-    { label: "GALLERY", href: "#gallery" },
-    { label: "FACILITIES", href: "#facilities" },
-    { label: "REVIEWS", href: "#reviews" }
+    { label: "Home", href: "#hero" },
+    { label: "Venue", href: "#venue" },
+    { label: "Events", href: "#events" },
+    { label: "Gallery", href: "#gallery" },
+    { label: "Facilities", href: "#facilities" },
+    { label: "Reviews", href: "#reviews" }
   ],
 
   contact: {
