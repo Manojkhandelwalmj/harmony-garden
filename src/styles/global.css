@@ -29,7 +29,15 @@ body {
   min-height: 100vh;
   margin: 0;
   background: var(--color-ivory);
+  color: var(--color-text);
   overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-white);
 }
 
 /* -----------------------------------------

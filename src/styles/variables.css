@@ -4,20 +4,21 @@
      ========================================= */
 
   --color-primary: #24483a;
-  --color-primary-dark: #18352b;
-  --color-primary-light: #3d6655;
+  --color-primary-dark: #163129;
+  --color-primary-light: #557664;
 
-  --color-accent: #c8a96b;
-  --color-accent-light: #dfc995;
+  --color-accent: #b78b55;
+  --color-accent-light: #d9b98d;
 
-  --color-ivory: #f8f5ed;
-  --color-cream: #efe9dc;
+  --color-ivory: #fbf8f1;
+  --color-cream: #f1eadf;
   --color-white: #ffffff;
+  --color-sand: #e5d7c4;
 
-  --color-text: #292824;
-  --color-text-muted: #6b6860;
-
-  --color-border: #ddd7ca;
+  --color-text: #2f302b;
+  --color-text-muted: #706f66;
+  --color-border: #ded6c9;
+  --color-overlay: rgb(18 43 34 / 0.68);
 
 
   /* =========================================
