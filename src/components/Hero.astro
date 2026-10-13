@@ -10,9 +10,9 @@ import heroImage from "../assets/images/gallery/harmonyGarden1.png";
   style={`background-image: url(${heroImage.src})`}
 >
   <div class="hero__overlay"></div>
+  <div class="hero__grain" aria-hidden="true"></div>
 
   <div class="container hero__inner">
-
     <div class="hero__content">
 
       <p class="hero__eyebrow">
@@ -57,7 +57,16 @@ import heroImage from "../assets/images/gallery/harmonyGarden1.png";
     position: absolute;
     inset: 0;
     z-index: 0;
-    background: linear-gradient(90deg, var(--color-overlay) 0%, rgb(18 43 34 / 0.42) 58%, rgb(18 43 34 / 0.18) 100%);
+    background: linear-gradient(90deg, var(--color-overlay) 0%, rgb(18 43 34 / 0.5) 52%, rgb(18 43 34 / 0.12) 100%);
+  }
+
+  .hero__grain {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    opacity: 0.13;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+    pointer-events: none;
   }
 
   .hero__inner {
@@ -75,12 +84,22 @@ import heroImage from "../assets/images/gallery/harmonyGarden1.png";
   }
 
   .hero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
     margin: 0 0 var(--space-5);
-    color: rgba(255, 255, 255, 0.82);
-    font-size: 0.8rem;
-    font-weight: 500;
-    letter-spacing: 0.12em;
+    color: var(--color-accent-light);
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
+  }
+
+  .hero__eyebrow::before {
+    content: "";
+    width: 34px;
+    height: 1px;
+    background: currentColor;
   }
 
   .hero__title {

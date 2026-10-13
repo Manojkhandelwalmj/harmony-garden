@@ -35,6 +35,27 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+::placeholder {
+  opacity: 1;
+}
+
+section {
+  position: relative;
+}
+
+a,
+button,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+a {
+  transition: transform var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
 ::selection {
   background: var(--color-accent);
   color: var(--color-white);

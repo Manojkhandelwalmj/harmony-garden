@@ -94,9 +94,9 @@
           >
             <option value="" selected disabled>Select guest range</option>
             <option value="Under 100">Under 100</option>
-            <option value="100â€“300">100â€“300</option>
-            <option value="300â€“500">300â€“500</option>
-            <option value="500â€“1,000">500â€“1,000</option>
+            <option value="100–300">100–300</option>
+            <option value="300–500">300–500</option>
+            <option value="500–1,000">500–1,000</option>
             <option value="1,000+">1,000+</option>
           </select>
         </div>
@@ -130,7 +130,8 @@
 
 <style>
   .lead-form {
-    background: var(--color-ivory);
+    background: var(--color-primary);
+    color: var(--color-white);
   }
 
   .lead-form__inner {
@@ -155,7 +156,7 @@
 
   .lead-form__title {
     margin: 0;
-    color: var(--color-primary);
+    color: var(--color-white);
     font-family: var(--font-heading);
     font-size: clamp(2.5rem, 5vw, 4.5rem);
     font-weight: 600;
@@ -173,9 +174,12 @@
 
   .lead-form__form {
     margin-top: var(--space-10);
-    padding: var(--space-8);
-    border: 1px solid var(--color-border);
-    background: var(--color-white);
+    padding: clamp(1.25rem, 4vw, 3rem);
+    border: 1px solid rgb(255 255 255 / 0.16);
+    border-radius: var(--radius-md);
+    background: rgb(255 255 255 / 0.08);
+    box-shadow: 0 24px 70px rgb(0 0 0 / 0.15);
+    backdrop-filter: blur(12px);
   }
 
   .lead-form__fields {
