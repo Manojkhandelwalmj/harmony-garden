@@ -3,22 +3,22 @@
      Harmony Garden — Color System
      ========================================= */
 
-  --color-primary: #203f35;
-  --color-primary-dark: #122a24;
-  --color-primary-light: #6b8876;
+  --color-primary: #24463b;
+  --color-primary-dark: #102b24;
+  --color-primary-light: #6e8c79;
 
-  --color-accent: #b48752;
-  --color-accent-light: #d8b98d;
+  --color-accent: #b88954;
+  --color-accent-light: #e2c59a;
 
-  --color-ivory: #fcfaf5;
-  --color-cream: #f3ede3;
+  --color-ivory: #fbf8f1;
+  --color-cream: #f1eadf;
   --color-white: #ffffff;
-  --color-sand: #e5d6c1;
+  --color-sand: #dfceb5;
 
-  --color-text: #29332e;
-  --color-text-muted: #68736c;
-  --color-border: #e2dbcf;
-  --color-overlay: rgb(13 34 28 / 0.72);
+  --color-text: #26352f;
+  --color-text-muted: #718078;
+  --color-border: #ded5c7;
+  --color-overlay: rgb(8 28 23 / 0.68);
 
 
   /* =========================================

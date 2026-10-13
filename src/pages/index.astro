@@ -5,7 +5,6 @@ import TrustStats from "../components/TrustStats.astro";
 import Introduction from "../components/Introduction.astro";
 import EventTypes from "../components/EventTypes.astro";
 import VenueSpaces from "../components/VenueSpaces.astro";
-import Capacity from "../components/Capacity.astro";
 import Facilities from "../components/Facilities.astro";
 import Gallery from "../components/Gallery.astro";
 import RealCelebrations from "../components/RealCelebrations.astro";
@@ -18,19 +17,80 @@ import Footer from "../components/Footer.astro";
 ---
 
 <MainLayout>
-  <Hero />
-  <TrustStats />
-  <Introduction />
-  <EventTypes />
-  <VenueSpaces />
-  <Capacity />
-  <Facilities />
-  <Gallery />
-  <RealCelebrations />
-  <Reviews />
-  <Pricing />
-  <Location />
-  <LeadForm />
-  <FinalCTA />
+  <main>
+    <Hero />
+
+    <section class="signature-strip" aria-label="Harmony Garden highlights">
+      <div class="container signature-strip__inner">
+        <span>Weddings</span><i></i><span>Receptions</span><i></i><span>Celebrations</span><i></i><span>Banswara, Rajasthan</span>
+      </div>
+    </section>
+
+    <TrustStats />
+    <Introduction />
+    <EventTypes />
+    <VenueSpaces />
+    <Facilities />
+    <Gallery />
+    <RealCelebrations />
+    <Reviews />
+    <Pricing />
+    <Location />
+    <LeadForm />
+    <FinalCTA />
+  </main>
   <Footer />
 </MainLayout>
+
+<style>
+  .signature-strip {
+    background: var(--color-primary-dark);
+    color: var(--color-accent-light);
+    border-top: 1px solid rgb(255 255 255 / 0.14);
+    border-bottom: 1px solid rgb(255 255 255 / 0.14);
+  }
+
+  .signature-strip__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 74px;
+    overflow: hidden;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    line-height: 1;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .signature-strip i {
+    width: 5px;
+    height: 5px;
+    flex: 0 0 auto;
+    border-radius: 50%;
+    background: var(--color-accent);
+  }
+
+  @media (max-width: 620px) {
+    .signature-strip__inner {
+      justify-content: flex-start;
+      min-height: 62px;
+      gap: 1.2rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .signature-strip__inner::-webkit-scrollbar { display: none; }
+  }
+</style>
+
+<style is:global>
+  .section-heading h2 { text-wrap: balance; }
+  .container { width: min(100% - 3rem, 1180px); margin-inline: auto; }
+
+  @media (max-width: 620px) {
+    .container { width: min(100% - 2rem, 1180px); }
+  }
+</style>
